@@ -1,0 +1,13 @@
+{
+  "name": "payfood-api",
+  "version": "0.0.0",
+  "description": "The payfood api.",
+  "main": "server.js",
+  "repository": "https://github.com/cesarviana/payfoodapi.git",
+  "author": "Cesar Viana <cesar.pviana@gmail.com>",
+  "dependencies": {
+    "express": "~4",
+    "mongoose" : "~4.5.9"
+  },
+  "licence" : "MIT"
+}
