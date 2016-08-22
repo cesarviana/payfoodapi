@@ -1,0 +1,17 @@
+Content-Type: application/json
+URL: https://payfoodapi-cesarviana.c9users.io
+
+/login
+
+/usuario
+POST
+{
+    "name":"cesar",
+    "email":"cesar.pviana@gmail.com",
+    "password":"abc124"
+}
+Erros
+409 - O e-mail já existe
+400 - Faltam propriedades
+500 - Não conseguiu salvar
+    
