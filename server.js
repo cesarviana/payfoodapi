@@ -20,7 +20,6 @@ var usuarioSchema = mongoose.Schema({
 
 var Usuario = mongoose.model('usuarios', usuarioSchema);
 
-
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -44,10 +43,32 @@ app.post('/login', function( req, res ){
       res.json( usuarios ); 
     }
   });
-  
 });
 
-
+app.post('/usuario', function( req, res ){
+  var valida = function( u ){
+    var erro;
+    if( !u.name || !u.email || !u.password ) {
+      throw 'Faltam propriedades';
+    } else {
+      Usuario.count({email:u.email}, function(err, nUsuarios){
+        if(err || nUsuarios > 0){
+          throw 'Já existe usuário com e-mail ' + u.email;
+        }
+      });
+    }
+  };
+  try {
+    valida( req.body );
+    var usuario = new Usuario( req.body );
+    usuario.save(function( err, usuario ){
+      if( err ) res.sendStatus( 500 );
+      res.json( usuario );
+    }); 
+  } catch ( e ) {
+    res.sendStatus( 409 );
+  }
+});
 
 app.listen(process.env.PORT, function(){
   console.log( "ESCUTANDO A PORTA: " + process.env.PORT );
