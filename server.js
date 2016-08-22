@@ -49,11 +49,8 @@ app.post('/login', function( req, res ){
       res.sendStatus( 404 );
     } else {
       var usuario = usuarios[0];
-      delete usuario.password;
-      res.json({
-        name : usuario.name,
-        id : usuario._id
-      }); 
+      usuario.password = '*';
+      res.json( usuario );
     }
   });
 });
@@ -74,6 +71,7 @@ app.post('/usuario', function( req, res ){
         var usuario = new Usuario( params );
         usuario.save(function( err, usuario ){
           if( err ) res.sendStatus( 500 ); // Falha ao salvar
+          usuario.password = '*';
           res.json( usuario );
         });
       };
