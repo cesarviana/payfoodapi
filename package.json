@@ -9,5 +9,8 @@
     "express": "~4",
     "mongoose" : "~4.5.9"
   },
-  "licence" : "MIT"
+  "licence" : "MIT",
+  "scripts" : {
+    "start" : "mongod --dbpath data --config mongo.conf && node server.js"
+  }
 }
