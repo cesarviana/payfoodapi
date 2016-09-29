@@ -16,10 +16,10 @@ var Usuario = mongoose.model('usuarios', usuarioSchema);
 
 var produtoSchema = mongoose.Schema({
     name : { type: String, required: true },
-    estabelecimento_Id : { type: String, required: true,unique: true },
+    estabelecimento_id : { type: mongoose.Schema.Types.ObjectId, required: true },
     preco : { type: Number, required: true },
     description : { type: String, required: false },
-    imgUrl : { type: String, required: false }
+    imgUrl : { type: String, required: false, unique: true }
 });
 var Produto= mongoose.model('produtos', produtoSchema);
 
@@ -32,7 +32,8 @@ var estabelecimentoSchema = mongoose.Schema({
   },
   imgUrl : String,
   descricao : String,
-  stars : { type:Number, min: 0, max: 5 }
+  stars : { type:Number, min: 0, max: 5 },
+  usuario_id : { type: mongoose.Schema.Types.ObjectId, required: true }
 });
 
 var Estabelecimento = mongoose.model('estabelecimentos', estabelecimentoSchema);

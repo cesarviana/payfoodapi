@@ -44,9 +44,8 @@ app.post('/login', function(req, res){
     email : email,
     password : password
   }, function(err, usuarios){
-    if(err){
+    if(err)
       return handleErr( err, res, "ERR_LOGIN" );
-    } 
     if( !usuarios )
       return handleErr( err, res, "ERR_USUARIO_NAO_ENCONTRADO" );
     res.json( hidePassword(usuarios[0]) );
@@ -56,24 +55,49 @@ app.post('/login', function(req, res){
 app.post('/estabelecimento', function( req, res ){
   var estabelecimento = new model.Estabelecimento( req.body );
   estabelecimento.save( function(err, estabelecimento){
-    if(err) {
+    if(err)
       return handleErr( err, res, "ERR_SALVAR_ESTABELECIMENTO");
-    } else {
-      res.json( estabelecimento );
-    }
+    res.json( estabelecimento );
   });
 });
 
 app.get('/estabelecimento', function( req, res ){
   model.Estabelecimento.find( function(err, estabelecimentos ){
-    if(err) {
+    if(err)
       return handleErr( err, res, "ERR_LISTAR_ESTABELECIMENTOS");
-    } else {
-      res.json( estabelecimentos );
-    }
+    res.json( estabelecimentos );
   });
 });
 
+app.get('/estabelecimento/usuario/:usuario_id', function( req, res ){
+  model.Estabelecimento.findOne({
+      usuario_id: req.params.usuario_id
+  }, function(err, estabelecimentos ){
+    if(err)
+      return handleErr( err, res, "ERR_LISTAR_ESTABELECIMENTOS_DO_USUARIO");
+    res.json( estabelecimentos );
+  });
+});
+
+app.post('/produto', function( req, res ){
+  var produto = new model.Produto( req.body );
+  produto.save( function(err, produto){
+    if(err)
+      return handleErr( err, res, "ERR_SALVAR_PRODUTO");
+    res.json( produto );
+  });
+});
+
+app.get('/produtos/estabelecimento/:estabelecimento_id', function( req, res ) {
+  console.log( 'EID = ' + req.params.estabelecimento_id );
+  model.Produto.find({
+    estabelecimento_id : req.params.estabelecimento_id
+  },function(err, produtos){
+    if(err)
+      return handleErr( err, res, "ERR_LISTAR_PRODUTOS" );
+    res.json( produtos );
+  });
+});
 
 app.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
   console.log("Server listening");
