@@ -1,0 +1,26 @@
+<section class="green login full-height shadow">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5 col-md-offset-4">
+				<h3>Login</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-5 col-md-offset-3">
+				<div class="input-grp">
+					<label for="email">
+						E-mail
+					</label>
+					<input type="email" name="email" ng-model="email"/>
+				</div class="input-grp">
+				<div class="input-grp">
+					<label for="password">
+						Senha
+					</label>
+					<input type="password" name="password" ng-model="password"/>
+				</div class="input-grp">
+				<button type="button" class="bt bt-white btn-wide-form pull-right" ng-click="login(email, password)">ENVIAR</button>
+			</div>
+		</div>
+	</div>
+</section>

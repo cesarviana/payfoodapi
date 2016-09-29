@@ -1,0 +1,99 @@
+<div class="dashboard">
+	<section class="green full-height">
+		<div class="container">
+			<div class="row" ng-if="!testeiEstabelecimento">
+				<div class="col-md-12 text-center">
+					<p>Carregando...</p>
+				</div>
+			</div>
+			<div class="row" ng-if="testeiEstabelecimento">
+				<div class="col-md-12">
+					<h3>Estabelecimento: {{ user.estabelecimento.name | capitalize }}</h3>
+				</div>
+			</div>
+			<div class="row tabela-grafico" ng-if="testeiEstabelecimento">
+				<div class="col-md-6 text-center">
+					<p>Pedidos Recentes</p>
+					<img src="img/tabela.png" style="width: 90%" />
+				</div>
+				<div class="col-md-6">
+					<div class="row">
+						<div class="col-md-4 text-center">
+							<p><a class="link-white" href="#">Hoje</a></p>
+						</div>
+						<div class="col-md-4 text-center">
+							<p><a class="link-white" href="#">Esta Semana</a></p>
+						</div>
+						<div class="col-md-4 text-center">
+							<p><a class="link-white" href="#">Este Mês</a></p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<br />
+							<img src="img/grafico.png" style="width: 90%" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-2 col-md-offset-2 text-center">
+							10h
+						</div>
+						<div class="col-md-2 text-center">
+							11h
+						</div>
+						<div class="col-md-2 text-center">
+							12h
+						</div>
+						<div class="col-md-2 text-center">
+							13h
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="white">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<h4>Hoje</h4>
+					<div class="row">
+						<div class="col-md-6">
+							<p class="pull-left"><strong>R$ 250,00</strong></p>
+							<p class="pull-right">
+								<small>32 pedidos</small>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<h4>Acumulado</h4>
+					<div class="row">
+						<div class="col-md-6">
+							<p class="pull-left"><strong>R$ 5200,00</strong></p>
+							<p class="pull-right">
+								<small>670 pedidos</small>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<h4>Esta Semana</h4>
+					<div class="row">
+						<div class="col-md-6">
+							<p class="pull-left"><strong>R$ 2200,00</strong></p>
+							<p class="pull-right">
+								<small>300 pedidos</small>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<a href="saque.html" class="bt bt-white btn-wide btn-sacar">SACAR</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>

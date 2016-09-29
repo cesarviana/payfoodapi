@@ -1,0 +1,41 @@
+<section class="green cadastrar full-height shadow">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5 col-md-offset-4">
+				<h3>Registrar</h3>
+			</div>
+		</div>
+		<div class="row">
+
+			<div class="col-md-5 col-md-offset-3">
+				<form ng-submit="register()">
+					<div class="input-grp">
+						<label for="nome">
+							Nome
+						</label>
+						<input required name="nome" ng-model="newUser.name"/>
+					</div>
+					<div class="input-grp">
+						<label for="email">
+							E-mail
+						</label>
+						<input required name="email" type="email" ng-model="newUser.email"/>
+					</div class="input-grp">
+					<div class="input-grp">
+						<label for="email">
+							Senha
+						</label>
+						<input required name="pass" type="password" ng-model="newUser.pass"/>
+					</div class="input-grp">
+					<div class="input-grp">
+						<label for="email">
+							Repetir Senha
+						</label>
+						<input required name="repeatedPass" type="password" ng-model="newUser.passRepeated" />
+					</div class="input-grp">
+					<button type="submit" class="bt bt-white btn-wide-form pull-right">ENVIAR</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>

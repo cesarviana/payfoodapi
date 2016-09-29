@@ -1,0 +1,275 @@
+html, body {
+	width: 100%;
+	font-family: 'Roboto', sans-serif;
+	background: #FFF;
+	color: #285C31;
+}
+
+.text-right { text-align: right; }
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.align-middle {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+ul.no-style {
+	list-style: none;
+	padding: 0;
+}
+
+.logo-img {
+	background: url('/app/img/icon.png');
+	width: 60px;
+	height: 60px;
+	background-size: cover;
+}
+
+.user-img {
+	background: url('/app/img/user.png.jpg');
+	width: 25px;
+	height: 25px;
+	margin-right: 10px;
+	background-size: cover;
+}
+
+h1 { font-size: 42px; }
+
+h2 { font-size: 36px; }
+
+h3 { font-size: 28px; border-bottom: 2px solid #285C31; display: inline-block; }
+
+h4,h5 { font-size: 24px; border-bottom: 2px solid #285C31; display: inline-block; }
+
+p, li { font-size: 20px; }
+
+.big-text {
+	font-size: 40px;
+}
+
+li {
+	margin-bottom: 10px;
+}
+
+.home header a {
+	color: #FFF;
+}
+.home header a:hover {
+	color: #109243;
+	text-decoration: none;
+}
+
+header a.logout {
+	margin-left: 10px;
+	display: inline-block;
+	margin-top: 18px;
+}
+
+.register {
+	margin-top: 10%;
+}
+
+.register .right-block {
+	font-family: 'Roboto';
+	padding: 10px 20px;
+	background: rgba(255,255,255,0.8);
+	color: #333;
+	box-shadow: 0px 0px 50px #333;
+	border-radius: 15px;
+}
+
+.register .right-block h2 {
+	line-height: 0.7;
+}
+
+.register .right-block p {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.register .right-block p:last-of-type {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.register .right-block span {
+	display: inline-block;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+
+.bt {
+	border: 2px solid #333;
+	background: transparent;
+	padding: 10px 20px;
+	color: #333;
+	font-weight: bold;
+	border-radius: 5px;
+	display: inline-block;
+	text-align: center;
+	font-size: 18px;
+}
+
+.bt:hover {
+	background: #333;
+	color: #FFF;
+	text-decoration: none;
+}	
+
+.bt.bt-theme {
+	border-color: #054A20;
+	background:  #109243;
+	color: #FFF;
+}
+.bt.bt-theme:hover {
+	background: #0AAE4A;
+}
+
+.bt.bt-white {
+	border-color: #333;
+	background: #FFF;
+	color: #333;
+}
+.bt.bt-white:hover {
+	background: #CCC;
+}
+.link-white {
+	text-decoration: underline;
+	color: #FFF;
+	font-weight: bold;
+}
+.link-white:hover {
+	color: #AAA;
+}
+.presentation {
+	/* background: url('http://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-319772.jpg'); */
+	background: url('../img/home-background.jpg');
+	background-size: cover;
+	height: 100vh;
+	color: #FFF;
+	box-shadow: inset 0 0 500px rgba(0,0,0,.9);
+}
+
+.cellphone-image {
+	background: url('http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/device-mobile-phone-icon.png');
+	background-size: cover;
+	width: 350px;
+	height: 350px;
+}
+
+.home section:not(.presentation) {
+	padding: 150px;
+}
+
+section.shadow {
+	box-shadow: inset 0 0 120px rgba(0,0,0,0.5);
+}
+
+section.green {
+	background: #109243;
+	color: #FFF;
+}
+section.green h3 {
+	border-bottom: 2px solid #FFF;
+}
+
+section.white {
+	background: #FFF;
+}
+
+section.black {
+	background: #333;
+	color: #FFF
+}
+
+section.black h3 {
+	border-bottom: 2px solid #FFF;
+}
+
+.contact p {
+	margin-bottom: 50px;
+}
+
+label {
+	margin-right: 5%;
+	display: inline-block;
+	text-align: right;
+	width: 20%;
+	vertical-align: middle;
+}
+.input-grp {
+	margin-top: 15px;
+}
+
+input, textarea {
+	vertical-align: middle;
+	display: inline-block;
+	width: 74%;
+	color: #333;
+}
+
+.btn-wide {
+	width: 100%;
+}
+
+.btn-wide-form {
+	margin-top: 20px;
+	width: 74%;
+}
+
+/* Login */
+
+section.login {
+	padding-top: 30vh;
+	padding-bottom: 40vh;
+}
+section.cadastrar {
+	padding-top: 25vh;
+	padding-bottom: 38vh;
+}
+
+.default-template header {
+	background: #FFF;
+	padding-top: 5px;
+	height: 65px;
+	border-bottom: 2px solid #CCC;
+	z-index: 50;
+}
+
+.default-template h1 {
+	font-size: 18px;
+}
+
+.default-template a h1 {
+	color: #109243;
+}
+
+.default-template .logo-img {
+	background: url('https://cdn0.iconfinder.com/data/icons/cartoon-food/512/Food_512-04.png');
+	width: 30px;
+	height: 30px;
+	background-size: cover;
+	margin-right: 5px;
+}
+
+footer {
+	display: none;
+	min-height: 150px;
+}
+
+
+/* Dashboard */
+
+.dashboard h3, .dashboard .tabela-grafico {
+	margin-bottom: 60px;
+}
+.dashboard h4 {
+	margin-bottom: 0px;
+}
+
+.dashboard {
+	margin-bottom: 50px;
+}
+
+.dashboard .btn-sacar {
+	margin-top: 50px;
+}

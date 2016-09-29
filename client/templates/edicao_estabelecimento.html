@@ -1,0 +1,45 @@
+<div class="dashboard full-height">
+	<section class="green" style="padding-top: 10vh; padding-bottom: 15vh;">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h3>Estabelecimento</h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<form>
+					  <div class="form-group">
+					    <label for="name">Nome do Estabelecimento</label>
+					    <input id="name" type="text" ng-model="user.estabelecimento.name" />
+					  </div>
+					  <div class="form-group">
+					    <label for="address">Endereço</label>
+					    <input id="address" type="text" ng-model="user.estabelecimento.address" />
+					  </div>
+					  <div class="form-group">
+					    <label for="location-x">Localização (x)</label>
+					    <input id="location-x" type="text" ng-model="user.estabelecimento.location.x" />
+					  </div>
+					  <div class="form-group">
+					    <label for="location-y">Localização (y)</label>
+					    <input id="location-y" type="text" ng-model="user.estabelecimento.location.y" />
+					  </div>
+					  <div class="form-group">
+					    <label for="descricao">Descrição</label>
+					    <input id="descricao" type="text" ng-model="user.estabelecimento.descricao" />
+					  </div>
+					  <div class="form-group">
+					    <label for="descricao">URL da imagem</label>
+					    <input id="descricao" type="text" ng-model="user.estabelecimento.imgUrl" />
+					  </div>
+					  <div class="text-center">
+					  	<button ng-if="user.estabelecimento._id" type="submit" class="btn btn-danger" ng-click="delete()">Excluir Estabelecimento</button>
+					  	<button type="submit" class="btn btn-default" ng-click="save()">Salvar</button>
+				  	</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
