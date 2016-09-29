@@ -118,6 +118,28 @@ app.get('/pedidos/estabelecimento/:estabelecimento_id', function(req, res) {
    }); 
 });
 
+const status = {
+  atende : 1,
+  cancela : 2,
+  finaliza : 3
+}
+
+app.put('/:acao/pedido/:pedido_id', function( req, res ){
+  model.Pedido.findById( req.params.pedido_id, 
+  function(err, pedido){
+    if(err) 
+      return handleErr(err, res, "ERR_ACAO_PEDIDO");
+    if(!status[ req.params.acao ])
+      return handleErr( err, res, "ERR_ACAO_PEDIDO_INVALIDA" );
+    pedido.status = status[ req.params.acao ]
+    pedido.save( function(){
+      if(err) 
+        return handleErr(err, res, "ERR_SALVAR_PEDIDO_ATENDIDO");
+      res.json( pedido );
+    });
+  });
+});
+
 app.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
   console.log("Server listening");
 });

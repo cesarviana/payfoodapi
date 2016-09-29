@@ -48,7 +48,7 @@ const pedidoSchema = mongoose.Schema({
         preco : Number
     },
     data : { type: Date, default: Date.now },
-    status : String,
+    status : Number,
     estabelecimento_id : { type : mongoose.Schema.Types.ObjectId, required: true, refs: 'Estabelecimento' }
 });
 
