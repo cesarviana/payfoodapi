@@ -23,7 +23,22 @@ var produtoSchema = mongoose.Schema({
 });
 var Produto= mongoose.model('produtos', produtoSchema);
 
+var estabelecimentoSchema = mongoose.Schema({
+  name: { type:String, required: true },
+  address: { type: String, unique:true, required: true },
+  location : {
+    x : Number,
+    y : Number
+  },
+  imgUrl : String,
+  descricao : String,
+  stars : { type:Number, min: 0, max: 5 }
+});
+
+var Estabelecimento = mongoose.model('estabelecimentos', estabelecimentoSchema);
+
 module.exports = {
+    Estabelecimento : Estabelecimento,
     Produto : Produto,
     Usuario : Usuario
 };

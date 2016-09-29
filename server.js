@@ -53,17 +53,27 @@ app.post('/login', function(req, res){
   });
 });
 
-// app.post('/estabelecimento', function( req, res ){
-//   var estabelecimento = new model.Estabelecimento( req.body );
-//   estabelecimento.save( function(err, estabelecimento){
-//     if(err) {
-//       res.status(400);
-//       res.json( err.code );
-//     } else {
-//       res.json( estabelecimento );
-//     }
-//   });
-// });
+app.post('/estabelecimento', function( req, res ){
+  var estabelecimento = new model.Estabelecimento( req.body );
+  estabelecimento.save( function(err, estabelecimento){
+    if(err) {
+      return handleErr( err, res, "ERR_SALVAR_ESTABELECIMENTO");
+    } else {
+      res.json( estabelecimento );
+    }
+  });
+});
+
+app.get('/estabelecimento', function( req, res ){
+  model.Estabelecimento.find( function(err, estabelecimentos ){
+    if(err) {
+      return handleErr( err, res, "ERR_LISTAR_ESTABELECIMENTOS");
+    } else {
+      res.json( estabelecimentos );
+    }
+  });
+});
+
 
 app.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
   console.log("Server listening");
