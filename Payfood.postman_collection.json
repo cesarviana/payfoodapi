@@ -1,0 +1,160 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Payfood",
+		"_postman_id": "b6293bd6-c1e7-a876-4773-d94cb5ca7464",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Salva o estabelecimento",
+			"request": {
+				"url": " https://payfood-api-dev-cesarviana.c9users.io/estabelecimento/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Lanchonete da Joana\",\n  \"address\": \"UNIVALI\",\n  \"location\" : {\n    \"x\" : 20,\n    \"y\" : 10\n  },\n  \"imgUrl\" : \"String\",\n  \"descricao\" : \"String\",\n  \"stars\" : 5,\n  \"usuario_id\" : \"57c7288c1c6ccfcd12caaf09\"\n}"
+				},
+				"description": "Salvar estabelecimento.\nDeve ter o código do usuario_id."
+			},
+			"response": []
+		},
+		{
+			"name": "Busca estabelecimento do usuario",
+			"request": {
+				"url": " https://payfood-api-dev-cesarviana.c9users.io/estabelecimento/usuario/57c7288c1c6ccfcd12caaf09",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "Busca estabelecimento do usuário\nO código final é o id do usuário."
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": "tests[\"Status code is 200\"] = responseCode.code === 200;"
+					}
+				}
+			],
+			"request": {
+				"url": " https://payfood-api-dev-cesarviana.c9users.io/login/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\" : \"maria@m.com\",\n  \"password\" : \"123456\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Salva produto",
+			"request": {
+				"url": "https://payfood-api-dev-cesarviana.c9users.io/produto/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\":\"Comida barata\",\n  \"estabelecimento_id\":\"57ca1d58b416831724786899\",\n  \"preco\":\"4.5\",\n  \"imgUrl\":\"http://aerojetpraga.com.br/wp-content/uploads/2014/02/barata-em-comida-restaurante-sujo.jpg\",\n  \"description\":\"Sanduíche de chocolate ou outra coisa\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Lista produtos do estabelecimento",
+			"request": {
+				"url": "https://payfood-api-dev-cesarviana.c9users.io/produtos/estabelecimento/57ca1d58b416831724786899",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Lista estabelecimentos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": "tests[\"Status code is 200\"] = responseCode.code === 200;"
+					}
+				}
+			],
+			"request": {
+				"url": " https://payfood-api-dev-cesarviana.c9users.io/estabelecimento/",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Salva usuário",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": "tests[\"Status code is 200\"] = responseCode.code === 200;"
+					}
+				}
+			],
+			"request": {
+				"url": " https://payfood-api-dev-cesarviana.c9users.io/usuario/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\" : \"Maria\",\n  \"email\" : \"maria@m.com\",\n  \"password\" : \"123456\"\n}"
+				},
+				"description": "Salva usuário"
+			},
+			"response": []
+		}
+	]
+}

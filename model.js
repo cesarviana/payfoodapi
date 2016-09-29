@@ -13,7 +13,6 @@ var usuarioSchema = mongoose.Schema({
 
 var Usuario = mongoose.model('usuarios', usuarioSchema);
 
-
 var produtoSchema = mongoose.Schema({
     name : { type: String, required: true },
     estabelecimento_id : { type: mongoose.Schema.Types.ObjectId, required: true },
