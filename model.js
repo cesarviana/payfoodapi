@@ -1,28 +1,28 @@
-var mongoose = require("mongoose");
+const mongoose = require("mongoose");
 mongoose.connect('mongodb://localhost/payfood');
-var db = mongoose.connection;
+const db = mongoose.connection;
 db.on('open', function(){
     console.log("Abriu conexão");
 });
 
-var usuarioSchema = mongoose.Schema({
+const usuarioSchema = mongoose.Schema({
     name : { type: String, required: true },
     email : { type: String, required: true, unique: true },
     password : { type: String, required: true }
 });
 
-var Usuario = mongoose.model('usuarios', usuarioSchema);
+const Usuario = mongoose.model('usuarios', usuarioSchema);
 
-var produtoSchema = mongoose.Schema({
+const produtoSchema = mongoose.Schema({
     name : { type: String, required: true },
     estabelecimento_id : { type: mongoose.Schema.Types.ObjectId, required: true },
     preco : { type: Number, required: true },
     description : { type: String, required: false },
     imgUrl : { type: String, required: false, unique: true }
 });
-var Produto= mongoose.model('produtos', produtoSchema);
+const Produto= mongoose.model('produtos', produtoSchema);
 
-var estabelecimentoSchema = mongoose.Schema({
+const estabelecimentoSchema = mongoose.Schema({
   name: { type:String, required: true },
   address: { type: String, unique:true, required: true },
   location : {
@@ -35,10 +35,28 @@ var estabelecimentoSchema = mongoose.Schema({
   usuario_id : { type: mongoose.Schema.Types.ObjectId, required: true }
 });
 
-var Estabelecimento = mongoose.model('estabelecimentos', estabelecimentoSchema);
+const Estabelecimento = mongoose.model('estabelecimentos', estabelecimentoSchema);
+
+const pedidoSchema = mongoose.Schema({
+    cliente : { 
+        id   : mongoose.Schema.Types.ObjectId,
+        name : String
+    },
+    produto : {
+        id : mongoose.Schema.Types.ObjectId,
+        name : String,
+        preco : Number
+    },
+    data : { type: Date, default: Date.now },
+    status : String,
+    estabelecimento_id : { type : mongoose.Schema.Types.ObjectId, required: true, refs: 'Estabelecimento' }
+});
+
+const Pedido = mongoose.model('pedidos', pedidoSchema);
 
 module.exports = {
     Estabelecimento : Estabelecimento,
     Produto : Produto,
-    Usuario : Usuario
+    Usuario : Usuario,
+    Pedido  : Pedido
 };

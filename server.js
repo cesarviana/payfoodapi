@@ -89,7 +89,6 @@ app.post('/produto', function( req, res ){
 });
 
 app.get('/produtos/estabelecimento/:estabelecimento_id', function( req, res ) {
-  console.log( 'EID = ' + req.params.estabelecimento_id );
   model.Produto.find({
     estabelecimento_id : req.params.estabelecimento_id
   },function(err, produtos){
@@ -97,6 +96,26 @@ app.get('/produtos/estabelecimento/:estabelecimento_id', function( req, res ) {
       return handleErr( err, res, "ERR_LISTAR_PRODUTOS" );
     res.json( produtos );
   });
+});
+
+app.post('/pedido', function( req, res ){
+  var pedido = new model.Pedido( req.body );
+  pedido.save( function(err, pedido) {
+    if(err)
+      return handleErr( err, res, "ERR_SALVAR_PEDIDO");
+    res.json( pedido );
+  });
+});
+
+app.get('/pedidos/estabelecimento/:estabelecimento_id', function(req, res) {
+   model.Pedido.find({
+     estabelecimento_id:req.params.estabelecimento_id
+   }, 
+   function(err, pedidos){
+     if(err)
+      return handleErr( err, res, "ERR_LISTAR_PEDIDOS");
+    res.json( pedidos );
+   }); 
 });
 
 app.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
